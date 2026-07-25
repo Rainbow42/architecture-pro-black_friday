@@ -1,19 +1,19 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="-H_mtQnk-PTXWXPvYvuk">
-        <mxGraphModel dx="867" dy="915" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1150" math="0" shadow="0">
+        <mxGraphModel dx="396" dy="624" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1150" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="apigw" value="api-gateway&#10;(балансировка)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
                     <mxGeometry x="500" y="370" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;актуальный список инстансов&lt;/span&gt;" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" edge="1" parent="1" source="consul" target="apigw">
+                <mxCell id="5" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;актуальный список инстансов&lt;/span&gt;" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" parent="1" source="consul" target="apigw" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="consul" value="consul&#10;(Service Discovery)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
                     <mxGeometry x="220" y="370" width="150" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="apps" target="consul">
+                <mxCell id="2" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" parent="1" source="apps" target="consul" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="295" y="540"/>
@@ -112,10 +112,10 @@
                 <mxCell id="cdn-msk" value="cdn-moscow&#10;(PoP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0fd;strokeColor=#1699d3;" parent="cdn" vertex="1">
                     <mxGeometry x="41.463414634146346" y="35" width="145.1219512195122" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="cdn-ekb" value="cdn-ekaterinburg&#10;(PoP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0fd;strokeColor=#1699d3;" parent="cdn" vertex="1">
+                <mxCell id="cdn-ekb" value="cdn-ulyanovsk&lt;br&gt;(PoP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0fd;strokeColor=#1699d3;" parent="cdn" vertex="1">
                     <mxGeometry x="337.4390243902439" y="35" width="145.1219512195122" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="cdn-vlk" value="cdn-vladivostok&#10;(PoP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0fd;strokeColor=#1699d3;" parent="cdn" vertex="1">
+                <mxCell id="cdn-vlk" value="cdn-kazan&lt;br&gt;(PoP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0fd;strokeColor=#1699d3;" parent="cdn" vertex="1">
                     <mxGeometry x="663.4146341463415" y="35" width="145.1219512195122" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="e-umsk-cdn" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="user-msk" target="cdn-msk" edge="1">
