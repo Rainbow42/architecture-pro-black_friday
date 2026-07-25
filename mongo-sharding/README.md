@@ -20,39 +20,6 @@ podman compose up -d
 ./scripts/init-sharding.sh
 ```
 
-Если хочется выполнить шаги вручную, внутри скрипта — те же команды:
-
-1. Инициализация сервера конфигурации:
-
-```shell
-podman compose exec -T configSrv mongosh --port 27017 --quiet <<EOF
-rs.initiate({ _id: "config_server", configsvr: true, members: [ { _id: 0, host: "configSrv:27017" } ] });
-EOF
-```
-
-2. Инициализация шардов:
-
-```shell
-podman compose exec -T shard1 mongosh --port 27018 --quiet <<EOF
-rs.initiate({ _id: "shard1", members: [ { _id: 0, host: "shard1:27018" } ] });
-EOF
-
-podman compose exec -T shard2 mongosh --port 27019 --quiet <<EOF
-rs.initiate({ _id: "shard2", members: [ { _id: 0, host: "shard2:27019" } ] });
-EOF
-```
-
-3. Добавление шардов в кластер и включение шардирования:
-
-```shell
-podman compose exec -T mongos_router mongosh --port 27020 --quiet <<EOF
-sh.addShard("shard1/shard1:27018");
-sh.addShard("shard2/shard2:27019");
-sh.enableSharding("somedb");
-sh.shardCollection("somedb.helloDoc", { "name": "hashed" });
-EOF
-```
-
 ## Наполнение БД тестовыми данными
 
 Скрипт вставляет 1000 документов в коллекцию `helloDoc` базы `somedb` через роутер:
