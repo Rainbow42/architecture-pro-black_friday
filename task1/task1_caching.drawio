@@ -1,14 +1,23 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="-H_mtQnk-PTXWXPvYvuk">
-        <mxGraphModel dx="898" dy="787" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1283" dy="829" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="app" value="pymongo-api" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
                     <mxGeometry x="500" y="40" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="redis" value="redis&#10;(кеш)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-                    <mxGeometry x="820" y="40" width="140" height="60" as="geometry"/>
+                <mxCell id="3" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="router" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" style="edgeStyle=none;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="router" target="rs1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="155" y="390" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="330" y="210"/>
+                            <mxPoint x="155" y="210"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="router" value="mongos_router&#10;(MongoDB router)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
                     <mxGeometry x="500" y="180" width="140" height="60" as="geometry"/>
@@ -17,7 +26,7 @@
                     <mxGeometry x="850" y="170" width="100" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="rs1" value="Replica Set shard1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1" vertex="1" parent="1">
-                    <mxGeometry x="80" y="340" width="460" height="200" as="geometry"/>
+                    <mxGeometry x="40" y="400" width="460" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="shard1-1" value="shard1-1&#10;(PRIMARY)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="rs1">
                     <mxGeometry x="30" y="60" width="100" height="100" as="geometry"/>
@@ -28,8 +37,8 @@
                 <mxCell id="shard1-3" value="shard1-3&#10;(SECONDARY)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="rs1">
                     <mxGeometry x="330" y="60" width="100" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="rs2" value="Replica Set «shard2»" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1" vertex="1" parent="1">
-                    <mxGeometry x="600" y="340" width="460" height="200" as="geometry"/>
+                <mxCell id="rs2" value="Replica Set shard2" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="660" y="400" width="460" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="shard2-1" value="shard2-1&#10;(PRIMARY)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="rs2">
                     <mxGeometry x="30" y="60" width="100" height="100" as="geometry"/>
@@ -40,20 +49,18 @@
                 <mxCell id="shard2-3" value="shard2-3&#10;(SECONDARY)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="rs2">
                     <mxGeometry x="330" y="60" width="100" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="e-app-redis" value="кеширование запросов" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="app" target="redis">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="e-app-router" value="запросы к БД" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="app" target="router">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="e-router-config" value="метаданные кластера" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="router" target="config">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="e-router-shard1" value="чтение/запись" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="router" target="shard1-1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="e-router-shard2" value="чтение/запись" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="router" target="shard2-1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="e-router-shard2" value="чтение/запись" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="router" target="shard2-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="740" y="225"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="e-repl1-2" value="репликация" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="shard1-1" target="shard1-2">
                     <mxGeometry relative="1" as="geometry"/>
@@ -66,6 +73,9 @@
                 </mxCell>
                 <mxCell id="e-repl4-5" value="репликация" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="shard2-2" target="shard2-3">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="redis&#10;(кеш)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="300" width="140" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
